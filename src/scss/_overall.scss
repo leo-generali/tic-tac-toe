@@ -1,0 +1,18 @@
+body {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: $background-color;
+}
+
+.board {
+  height: $board-size;
+  width: $board-size;
+
+  background-color: $board-background;
+
+  @include card(3);
+}
