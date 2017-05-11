@@ -1,0 +1,1 @@
+function init(){console.log(model.squares)}var model={squares:9,wins:0,losses:0};init();

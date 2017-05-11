@@ -27,7 +27,7 @@ var minify = require('gulp-minify');
   });
 
   gulp.task('compress', function() {
-    var input = folder.src + 'js/*.js';
+    var input = folder.src + '*.js';
     var output = folder.build + 'js';
     return gulp
       .src ( input )
