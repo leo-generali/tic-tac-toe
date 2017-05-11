@@ -1,1 +1,1 @@
-function init(){console.log(model.squares)}var model={squares:9,wins:0,losses:0};init();
+function init(){console.log(model.squares),function(){for(var e=document.getElementsByClassName("board")[0],s=0;s<model.squares;s++){var o=document.createElement("div");o.className="square",console.log(s),e.appendChild(o)}}()}var model={squares:9,toWin:3,wins:0,losses:0};init();

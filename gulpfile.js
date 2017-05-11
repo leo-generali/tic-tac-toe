@@ -57,8 +57,8 @@ var minify = require('gulp-minify');
 
   gulp.task('watch', function() {
     var inputHtml = folder.src + '*.html';
+    var inputJs = folder.src + '*.js';
     var inputSass = folder.src + 'scss/**/*.scss';
-    var inputJs = folder.src + 'js/*.js';
     
     gulp.watch( inputHtml, ['minify'] );
     gulp.watch( inputJs, ['compress'] );
