@@ -16,14 +16,10 @@ body {
   width: $board-size;
 
   background-color: $board-background;
-
   @include card(3);
 }
 
 .square {
   height: $board-size / 3;
-  width: $board-size / 3;
-
-
-  background-color: red;
+  width: $board-size / 3; 
 }

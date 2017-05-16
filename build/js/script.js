@@ -1,0 +1,1 @@
+function Board(t){this.squares=t}function Tile(){this.status=""}Board.prototype.buildBoard=function(){};var model={board:["","","","","","","","","",""],score:{x:0,o:0}};Tile.prototype.setStatus=function(t){this.status=t},Tile.prototype.isOccupied=function(){return!!this.status};

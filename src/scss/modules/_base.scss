@@ -12,6 +12,8 @@ $font-stack: -apple-system,
 $background-color-backup: #f09819;
 $background-color: linear-gradient(to right, #ff512f, #f09819);
 
-$board-background: white;
+$board-background: #fff;
 
 $board-size: 400px;
+
+@import "/modules/mixins";

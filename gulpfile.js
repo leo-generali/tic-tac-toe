@@ -5,6 +5,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var htmlmin = require('gulp-htmlmin');
 var minify = require('gulp-minify');
+var concat = require('gulp-concat');
 
   // folders
   var folder = {
@@ -27,10 +28,11 @@ var minify = require('gulp-minify');
   });
 
   gulp.task('compress', function() {
-    var input = folder.src + '*.js';
+    var input = folder.src + '*/*.js';
     var output = folder.build + 'js';
     return gulp
       .src ( input )
+      .pipe( concat('script.js'))
       .pipe(minify({
         ext: {
           src:'-debug.js',
@@ -43,13 +45,13 @@ var minify = require('gulp-minify');
   })
 
   gulp.task('sass', function() {
-    var input = folder.src + 'scss/**/*.scss';
+    var input = folder.src + 'scss/*/*.scss';
     var output = folder.build + 'css/';
     return gulp
       .src( input )
-      .pipe( sourcemaps.init() )
       .pipe( sass(sassOptions).on('error', sass.logError) )
-      .pipe(sourcemaps.write())
+      .pipe( sourcemaps.init() )
+      .pipe( sourcemaps.write() )
       .pipe( autoprefixer() )
       .pipe( gulp.dest( output ));
   });
@@ -57,7 +59,7 @@ var minify = require('gulp-minify');
 
   gulp.task('watch', function() {
     var inputHtml = folder.src + '*.html';
-    var inputJs = folder.src + '*.js';
+    var inputJs = folder.src + 'logic/*.js';
     var inputSass = folder.src + 'scss/**/*.scss';
     
     gulp.watch( inputHtml, ['minify'] );
