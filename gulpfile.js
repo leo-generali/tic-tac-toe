@@ -6,6 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var htmlmin = require('gulp-htmlmin');
 var minify = require('gulp-minify');
 var concat = require('gulp-concat');
+var cleanCSS = require('gulp-clean-css');
 
   // folders
   var folder = {
@@ -45,14 +46,16 @@ var concat = require('gulp-concat');
   })
 
   gulp.task('sass', function() {
-    var input = folder.src + 'scss/*/*.scss';
+    var input = folder.src + '/scss/main.scss';
     var output = folder.build + 'css/';
+    console.log(output);
     return gulp
       .src( input )
-      .pipe( sass(sassOptions).on('error', sass.logError) )
       .pipe( sourcemaps.init() )
+      .pipe( sass(sassOptions).on('error', sass.logError) )
       .pipe( sourcemaps.write() )
       .pipe( autoprefixer() )
+      .pipe( cleanCSS() )
       .pipe( gulp.dest( output ));
   });
 
