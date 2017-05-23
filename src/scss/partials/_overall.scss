@@ -19,7 +19,11 @@ body {
   @include card(3);
 }
 
-.square {
+.tile {
   height: $board-size / 3;
   width: $board-size / 3; 
+}
+
+.tile:hover {
+  cursor: pointer;
 }

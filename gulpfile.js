@@ -7,6 +7,7 @@ var htmlmin = require('gulp-htmlmin');
 var minify = require('gulp-minify');
 var concat = require('gulp-concat');
 var cleanCSS = require('gulp-clean-css');
+var babel = require('gulp-babel');
 
   // folders
   var folder = {
@@ -33,6 +34,9 @@ var cleanCSS = require('gulp-clean-css');
     var output = folder.build + 'js';
     return gulp
       .src ( input )
+      .pipe(babel({
+            presets: ['es2015']
+        }))
       .pipe( concat('script.js'))
       .pipe(minify({
         ext: {
