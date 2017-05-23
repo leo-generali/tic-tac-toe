@@ -11,8 +11,6 @@ Board.prototype.fillBoard = function() {
 }
 
 Board.prototype.increaseTurn = function() {
-  console.log(this.turns);
-  console.log(this.turns % 2);
   this.turns++;
 }
 
@@ -23,19 +21,21 @@ Board.prototype.buildBoard = function(boardClass) {
 
     var tileElem = document.createElement('div');
     tileElem.className = 'tile';
+
+    //Place tile depending on turn order
     tileElem.addEventListener('click', function(){
+      var grid = that.grid[i];
       if(that.turns % 2 === 0 ){
-        console.log("X");
-        that.grid[i].setStatus("X");
+        grid.setStatus("X");
       }else{
-        console.log("O");
-        that.grid[i].setStatus("O");
+        grid.setStatus("O");
       }
+      console.log(grid);
       that.increaseTurn();
     });
+
     boardElem.appendChild(tileElem);
   }
-
 }
 
 
